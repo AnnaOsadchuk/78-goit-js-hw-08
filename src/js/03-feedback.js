@@ -28,7 +28,9 @@ formEl.addEventListener(
 
 buttonEl.addEventListener('click', event => {
   event.preventDefault();
-  console.log(`email: ${emailEl.value}, message: ${messageEl.value}`);
-  localStorage.removeItem('feedback-form-state');
-  formEl.reset();
+  if (emailEl.value !== '' && messageEl.value !== '') {
+    console.log(localStorage.getItem('feedback-form-state'));
+    localStorage.removeItem('feedback-form-state');
+    formEl.reset();
+  }
 });
